@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+dist/
+.env
+
+# Docker
+.data/
+postgres_data/
+
+# OS
+.DS_Store
+Thumbs.db
