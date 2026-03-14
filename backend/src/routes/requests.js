@@ -1,8 +1,9 @@
-const { Router } = require('express');
+const express = require('express');
 const pool = require('../db');
 
-const router = Router();
+const router = express.Router();
 
+// GET /api/requests/:requestId - 상태 조회
 router.get('/:requestId', async (req, res) => {
   const { requestId } = req.params;
 
@@ -25,7 +26,14 @@ router.get('/:requestId', async (req, res) => {
       return res.status(404).json({ error: 'Request not found' });
     }
 
-    res.json(result.rows[0]);
+    const item = result.rows[0];
+
+    // 요청자 본인만 조회 가능
+    if (req.user?.userId && item.userId !== req.user.userId) {
+      return res.status(403).json({ error: '권한이 없습니다' });
+    }
+
+    res.json(item);
   } catch (err) {
     console.error('[GET /requests/:requestId]', err);
     res.status(500).json({ error: 'Internal server error' });

@@ -179,3 +179,6 @@ redis    StatefulSet (또는 Redis Sentinel / Cluster)
 ```
 
 환경변수는 ConfigMap / Secret으로 주입하고, `API_BASE_URL` 은 frontend Pod의 env에 설정합니다.
+
+
+npm install dotenv

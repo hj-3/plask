@@ -31,13 +31,13 @@ services:
   backend:
     build: ./backend
     ports:
-      - "3001:3001"
+      - "3002:3002"
     environment:
       DATABASE_URL: postgresql://user:password@postgres:5432/enrollment
       REDIS_HOST: redis
       REDIS_PORT: 6379
       QUEUE_NAME: enrollment-queue
-      PORT: 3001
+      PORT: 3002
     depends_on:
       postgres:
         condition: service_healthy

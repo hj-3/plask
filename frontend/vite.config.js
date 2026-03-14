@@ -10,10 +10,16 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        // The local backend (when running via `npm run dev`) listens on 3002 by default.
+        // This must match backend/.env PORT or the port you pass to the backend server.
+        target: 'http://localhost:3002',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        // Keep the /api prefix when proxying so it matches the backend routes.
+        // The backend defines routes like /api/auth/login, /api/courses, etc.
       },
     },
+    watch: {
+      usePolling: true,
+    }
   },
 });
