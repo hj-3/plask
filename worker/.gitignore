@@ -1,18 +1,10 @@
 # Dependencies
 node_modules/
 
-# Build outputs
-dist/
-build/
-
 # Environment variables
 .env
 .env.*
 !.env.example
-
-# Docker volumes
-.data/
-postgres_data/
 
 # Logs
 *.log
@@ -26,4 +18,3 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
-*.swo

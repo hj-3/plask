@@ -1,13 +1,20 @@
 # Dependencies
 node_modules/
-dist/
-.env*
-build/
 
-# Docker
-.data/
-postgres_data/
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
 
 # OS
 .DS_Store
 Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
