@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+dist/
+.env*
+build/
+
+# Docker
+.data/
+postgres_data/
+
+# OS
+.DS_Store
+Thumbs.db
